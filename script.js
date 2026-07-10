@@ -17,16 +17,6 @@ couplePhoto.addEventListener("error", () => {
   photoPlaceholder.hidden = false;
 });
 
-const memeCandidates = ["meme_cat.jpg", "meme_cat.png", "cat_meme.jpg"];
-let memeCandidateIndex = 0;
-
-memeImage.addEventListener("error", () => {
-  memeCandidateIndex += 1;
-  if (memeCandidateIndex < memeCandidates.length) {
-    memeImage.src = memeCandidates[memeCandidateIndex];
-  }
-});
-
 function showMeme() {
   memeModal.hidden = false;
   document.body.style.overflow = "hidden";
@@ -53,7 +43,7 @@ function launchHearts() {
     heart.style.setProperty("--x", `${(Math.random() - 0.5) * 390}px`);
     heart.style.setProperty("--y", `${-180 - Math.random() * 470}px`);
     heart.style.setProperty("--r", `${(Math.random() - 0.5) * 240}deg`);
-    heart.style.setProperty("--size", `${14 + Math.random() * 24}px`);
+    heart.style.setProperty("--size", `${23 + Math.random() * 32}px`);
     heart.style.setProperty("--duration", `${1.7 + Math.random() * 1.2}s`);
     heart.style.setProperty("--color", colors[Math.floor(Math.random() * colors.length)]);
     heart.style.animationDelay = `${Math.random() * .32}s`;
