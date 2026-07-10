@@ -8,7 +8,7 @@
   <title>Наш особенный вечер 💜</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,8 +21,7 @@
     </div>
 
     <header class="heading">
-      <p class="pretitle">ПРИГЛАШЕНИЕ НА</p>
-      <h1>Наш особенный<br><em>вечер</em></h1>
+      <h1>Приглашение<br>на свидание</h1>
     </header>
 
     <section class="photo-zone" aria-label="Место для общей фотографии">
@@ -43,9 +42,15 @@
     </section>
 
     <section class="event-details">
-      <strong>СУББОТА, 11 ИЮЛЯ&nbsp; | &nbsp;19:00</strong>
-      <span>Kölökö · Бишкек</span>
-      <p>Давай проведём этот вечер вместе<br>и создадим ещё одно красивое воспоминание.</p>
+      <div class="event-row">
+        <small>ВРЕМЯ И МЕСТО</small>
+        <strong>11 июля · 19:00</strong>
+        <span>Kölökö · Бишкек</span>
+      </div>
+      <div class="program-row">
+        <small>ПРОГРАММА ВЕЧЕРА</small>
+        <strong>Ужастики и хорошая еда</strong>
+      </div>
     </section>
 
     <section class="answer-section">
@@ -53,11 +58,6 @@
       <div class="answer-buttons" id="answerButtons">
         <button class="no-button" id="noButton" type="button">Нет</button>
         <button class="yes-button" id="yesButton" type="button">Да, конечно 💜</button>
-      </div>
-      <div class="yes-result" id="yesResult" hidden>
-        <span>♥</span>
-        <strong>Тогда это свидание!</strong>
-        <small>До встречи 11 июля в 19:00</small>
       </div>
     </section>
   </main>
