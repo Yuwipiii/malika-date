@@ -2,94 +2,72 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#21172b">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#160724">
   <meta name="description" content="Приглашение для Малики на особенный вечер — 11 июля 2026 года.">
-  <title>Для Малики ✦ 11.07.2026</title>
+  <title>Малика, пойдём на свидание? 💜</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="floating-hearts" aria-hidden="true"></div>
+  <div class="aurora aurora-one" aria-hidden="true"></div>
+  <div class="aurora aurora-two" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
 
-  <main>
-    <section class="hero" id="top">
-      <div class="hero-photo" aria-hidden="true"></div>
-      <div class="hero-shade" aria-hidden="true"></div>
-      <div class="hero-content reveal">
-        <p class="eyebrow">11 · 07 · 2026</p>
-        <h1>Малика,<br><em>этот вечер — для тебя</em></h1>
-        <p class="intro">Есть планы, которые хочется оставить сюрпризом. Но время и место встречи я всё-таки расскажу.</p>
-        <a class="scroll-link" href="#invitation">Открыть приглашение <span>↓</span></a>
+  <main class="invitation-card">
+    <div class="topline">
+      <span>Только для Малики</span>
+      <span class="heart-mark" aria-hidden="true">♥</span>
+    </div>
+
+    <header>
+      <p class="eyebrow">У меня есть важный вопрос</p>
+      <h1>Пойдёшь со мной<br><em>на свидание?</em></h1>
+      <p class="subtitle">Хочу провести с тобой красивый летний вечер.</p>
+    </header>
+
+    <section class="details" aria-label="Детали встречи">
+      <div class="detail-item">
+        <span class="icon" aria-hidden="true">✦</span>
+        <div><small>КОГДА</small><strong>11 июля · 19:00</strong></div>
       </div>
-      <p class="side-note">BISHKEK · SUMMER EVENING</p>
+      <a class="detail-item" href="https://www.google.com/maps/search/?api=1&query=K%C3%B6l%C3%B6k%C3%B6%20Bishkek" target="_blank" rel="noopener noreferrer">
+        <span class="icon" aria-hidden="true">⌖</span>
+        <div><small>ГДЕ</small><strong>Kölökö · Бишкек</strong></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
     </section>
 
-    <section class="invitation" id="invitation">
-      <div class="section-number">01</div>
-      <div class="invitation-copy reveal">
-        <p class="eyebrow dark">ПРИГЛАШЕНИЕ</p>
-        <h2>Давай проведём<br>этот вечер <em>вместе?</em></h2>
-        <p>Хочу пригласить тебя на свидание — без спешки, лишних планов и суеты. Просто красивый летний вечер, хорошее настроение и время для нас.</p>
-      </div>
-
-      <div class="details-card reveal">
-        <div class="detail">
-          <span class="detail-label">Когда</span>
-          <strong>11 июля 2026</strong>
-          <span>Суббота · 19:00</span>
-        </div>
-        <div class="line"></div>
-        <div class="detail">
-          <span class="detail-label">Где</span>
-          <strong>Kölökö</strong>
-          <span>Бишкек</span>
-        </div>
-        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=K%C3%B6l%C3%B6k%C3%B6%20Bishkek" target="_blank" rel="noopener noreferrer">Показать на карте ↗</a>
-      </div>
-    </section>
-
-    <section class="countdown-section">
-      <div class="countdown-heading reveal">
-        <p class="eyebrow">ДО НАШЕЙ ВСТРЕЧИ</p>
-        <h2>Осталось совсем<br><em>немного</em></h2>
-      </div>
-      <div class="countdown reveal" aria-live="polite">
+    <section class="countdown-wrap" aria-label="До встречи осталось">
+      <p>До нашей встречи</p>
+      <div class="countdown" id="countdown" aria-live="polite">
         <div><strong id="days">00</strong><span>дней</span></div>
+        <i>:</i>
         <div><strong id="hours">00</strong><span>часов</span></div>
+        <i>:</i>
         <div><strong id="minutes">00</strong><span>минут</span></div>
+        <i>:</i>
         <div><strong id="seconds">00</strong><span>секунд</span></div>
       </div>
-      <p class="countdown-finished" id="finished" hidden>Наш вечер уже наступил ✦</p>
+      <p class="finished" id="finished" hidden>Время нашей встречи ✦</p>
     </section>
 
-    <section class="answer-section">
-      <div class="answer-card reveal">
-        <span class="mini-heart" aria-hidden="true">♥</span>
-        <p class="eyebrow dark">ТОЛЬКО ОДИН ВОПРОС</p>
-        <h2>Ты пойдёшь<br>со мной?</h2>
-        <p>Буду ждать тебя 11 июля в 19:00.</p>
-        <div class="answer-buttons" id="answerButtons">
-          <button class="yes-button" id="yesButton" type="button">Да, конечно ✦</button>
-          <button class="maybe-button" id="maybeButton" type="button">Мне нужно подумать</button>
-        </div>
-        <div class="answer-result" id="answerResult" hidden>
-          <span>♥</span>
-          <strong>Тогда это свидание!</strong>
-          <p>До встречи в субботу в 19:00.</p>
-        </div>
+    <section class="answer-area" id="answerArea">
+      <p class="question">Ну что, согласна?</p>
+      <div class="actions" id="actions">
+        <button class="yes-button" id="yesButton" type="button">Да, конечно 💜</button>
+        <button class="no-button" id="noButton" type="button" tabindex="-1">Нет</button>
+      </div>
+      <div class="answer-result" id="answerResult" hidden>
+        <span aria-hidden="true">♥</span>
+        <div><strong>Тогда договорились!</strong><small>До встречи 11 июля в 19:00</small></div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <span>С любовью к красивым моментам</span>
-    <a href="#top">Наверх ↑</a>
-  </footer>
-
+  <div class="particles" id="particles" aria-hidden="true"></div>
   <script src="script.js"></script>
 </body>
 </html>
