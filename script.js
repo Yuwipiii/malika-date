@@ -1,123 +1,71 @@
-const meetingDate = new Date("2026-07-11T19:00:00+06:00");
-const countdown = document.getElementById("countdown");
-const finished = document.getElementById("finished");
-const actions = document.getElementById("actions");
+const couplePhoto = document.getElementById("couplePhoto");
+const photoPlaceholder = document.getElementById("photoPlaceholder");
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
-const answerResult = document.getElementById("answerResult");
-const noModal = document.getElementById("noModal");
+const answerButtons = document.getElementById("answerButtons");
+const yesResult = document.getElementById("yesResult");
+const memeModal = document.getElementById("memeModal");
+const memeImage = document.getElementById("memeImage");
 const modalClose = document.getElementById("modalClose");
-const isMobileDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+const heartParticles = document.getElementById("heartParticles");
 
-function updateCountdown() {
-  const distance = meetingDate.getTime() - Date.now();
+couplePhoto.addEventListener("load", () => {
+  couplePhoto.hidden = false;
+  photoPlaceholder.hidden = true;
+});
 
-  if (distance <= 0) {
-    countdown.hidden = true;
-    finished.hidden = false;
-    return;
+couplePhoto.addEventListener("error", () => {
+  couplePhoto.hidden = true;
+  photoPlaceholder.hidden = false;
+});
+
+const memeCandidates = ["meme_cat.jpg", "meme_cat.png", "cat_meme.jpg"];
+let memeCandidateIndex = 0;
+
+memeImage.addEventListener("error", () => {
+  memeCandidateIndex += 1;
+  if (memeCandidateIndex < memeCandidates.length) {
+    memeImage.src = memeCandidates[memeCandidateIndex];
   }
+});
 
-  const values = {
-    days: Math.floor(distance / 86400000),
-    hours: Math.floor((distance / 3600000) % 24),
-    minutes: Math.floor((distance / 60000) % 60),
-    seconds: Math.floor((distance / 1000) % 60),
-  };
-
-  Object.entries(values).forEach(([id, value]) => {
-    document.getElementById(id).textContent = String(value).padStart(2, "0");
-  });
+function showMeme() {
+  memeModal.hidden = false;
+  document.body.style.overflow = "hidden";
 }
 
-function overlapsYes(left, top) {
-  const gap = 8;
-  const yesLeft = yesButton.offsetLeft;
-  const yesTop = yesButton.offsetTop;
-  return !(
-    left + noButton.offsetWidth + gap < yesLeft ||
-    left > yesLeft + yesButton.offsetWidth + gap ||
-    top + noButton.offsetHeight + gap < yesTop ||
-    top > yesTop + yesButton.offsetHeight + gap
-  );
-}
-
-function moveNoButton() {
-  const maxLeft = Math.max(0, actions.clientWidth - noButton.offsetWidth);
-  const maxTop = Math.max(0, actions.clientHeight - noButton.offsetHeight);
-  let left = maxLeft;
-  let top = 0;
-
-  for (let attempt = 0; attempt < 24; attempt += 1) {
-    const candidateLeft = Math.random() * maxLeft;
-    const candidateTop = Math.random() * maxTop;
-    if (!overlapsYes(candidateLeft, candidateTop)) {
-      left = candidateLeft;
-      top = candidateTop;
-      break;
-    }
-  }
-
-  noButton.style.right = "auto";
-  noButton.style.left = `${left}px`;
-  noButton.style.top = `${top}px`;
-}
-
-function runAway(event) {
-  event.preventDefault();
-  moveNoButton();
-}
-
-if (isMobileDevice) {
-  noButton.addEventListener("click", () => {
-    noModal.hidden = false;
-    document.body.style.overflow = "hidden";
-  });
-} else {
-  noButton.addEventListener("pointerenter", runAway);
-  noButton.addEventListener("pointerdown", runAway);
-  noButton.addEventListener("click", runAway);
-
-  actions.addEventListener("pointermove", (event) => {
-    const buttonRect = noButton.getBoundingClientRect();
-    const distance = Math.hypot(
-      event.clientX - (buttonRect.left + buttonRect.width / 2),
-      event.clientY - (buttonRect.top + buttonRect.height / 2)
-    );
-    if (distance < 76) moveNoButton();
-  });
-}
-
-function closeNoModal() {
-  noModal.hidden = true;
+function closeMeme() {
+  memeModal.hidden = true;
   document.body.style.overflow = "";
 }
 
-modalClose.addEventListener("click", closeNoModal);
-noModal.addEventListener("click", (event) => {
-  if (event.target === noModal) closeNoModal();
+noButton.addEventListener("click", showMeme);
+modalClose.addEventListener("click", closeMeme);
+memeModal.addEventListener("click", (event) => {
+  if (event.target === memeModal) closeMeme();
 });
 
-function celebrate() {
-  for (let i = 0; i < 26; i += 1) {
-    const particle = document.createElement("span");
-    particle.className = "particle";
-    particle.textContent = i % 4 === 0 ? "✦" : "♥";
-    particle.style.setProperty("--x", `${(Math.random() - 0.5) * 330}px`);
-    particle.style.setProperty("--y", `${-80 - Math.random() * 310}px`);
-    particle.style.setProperty("--r", `${(Math.random() - 0.5) * 160}deg`);
-    particle.style.animationDelay = `${Math.random() * 0.25}s`;
-    document.getElementById("particles").appendChild(particle);
-    setTimeout(() => particle.remove(), 2500);
+function launchHearts() {
+  const colors = ["#ffffff", "#ffd5e7", "#ef9ac1", "#d9b1ff"];
+
+  for (let index = 0; index < 42; index += 1) {
+    const heart = document.createElement("span");
+    heart.className = "flying-heart";
+    heart.textContent = index % 6 === 0 ? "♡" : "♥";
+    heart.style.setProperty("--x", `${(Math.random() - 0.5) * 390}px`);
+    heart.style.setProperty("--y", `${-180 - Math.random() * 470}px`);
+    heart.style.setProperty("--r", `${(Math.random() - 0.5) * 240}deg`);
+    heart.style.setProperty("--size", `${14 + Math.random() * 24}px`);
+    heart.style.setProperty("--duration", `${1.7 + Math.random() * 1.2}s`);
+    heart.style.setProperty("--color", colors[Math.floor(Math.random() * colors.length)]);
+    heart.style.animationDelay = `${Math.random() * .32}s`;
+    heartParticles.appendChild(heart);
+    setTimeout(() => heart.remove(), 3500);
   }
 }
 
 yesButton.addEventListener("click", () => {
-  actions.hidden = true;
-  document.querySelector(".question").hidden = true;
-  answerResult.hidden = false;
-  celebrate();
+  answerButtons.hidden = true;
+  yesResult.hidden = false;
+  launchHearts();
 });
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
