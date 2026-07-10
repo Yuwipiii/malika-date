@@ -3,78 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#160724">
-  <meta name="description" content="Приглашение для Малики на особенный вечер — 11 июля 2026 года.">
-  <title>Малика, пойдём на свидание? 💜</title>
+  <meta name="theme-color" content="#6c348d">
+  <meta name="description" content="Приглашение для Малики на свидание 11 июля 2026 года.">
+  <title>Наш особенный вечер 💜</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="aurora aurora-one" aria-hidden="true"></div>
-  <div class="aurora aurora-two" aria-hidden="true"></div>
-  <div class="stars" aria-hidden="true"></div>
+  <main class="invitation">
+    <div class="corner corner-left" aria-hidden="true"></div>
+    <div class="corner corner-right" aria-hidden="true"></div>
 
-  <main class="invitation-card">
-    <div class="topline">
-      <span>Только для Малики</span>
-      <span class="heart-mark" aria-hidden="true">♥</span>
+    <div class="heart-garland" aria-hidden="true">
+      <span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span>
     </div>
 
-    <header>
-      <p class="eyebrow">У меня есть важный вопрос</p>
-      <h1>Пойдёшь со мной<br><em>на свидание?</em></h1>
-      <p class="subtitle">Хочу провести с тобой красивый летний вечер.</p>
+    <header class="heading">
+      <p class="pretitle">ПРИГЛАШЕНИЕ НА</p>
+      <h1>Наш особенный<br><em>вечер</em></h1>
     </header>
 
-    <section class="details" aria-label="Детали встречи">
-      <div class="detail-item">
-        <span class="icon" aria-hidden="true">✦</span>
-        <div><small>КОГДА</small><strong>11 июля · 19:00</strong></div>
+    <section class="photo-zone" aria-label="Место для общей фотографии">
+      <span class="side-heart side-heart-one" aria-hidden="true">♥</span>
+      <span class="side-heart side-heart-two" aria-hidden="true">♥</span>
+      <span class="side-heart side-heart-three" aria-hidden="true">♥</span>
+      <span class="side-heart side-heart-four" aria-hidden="true">♥</span>
+
+      <div class="photo-heart">
+        <div class="photo-inner">
+          <img id="couplePhoto" src="our_photo.jpg" alt="Наша фотография">
+          <div class="photo-placeholder" id="photoPlaceholder">
+            <span>♡</span>
+            <strong>Здесь будет<br>наша фотография</strong>
+          </div>
+        </div>
       </div>
-      <a class="detail-item" href="https://www.google.com/maps/search/?api=1&query=K%C3%B6l%C3%B6k%C3%B6%20Bishkek" target="_blank" rel="noopener noreferrer">
-        <span class="icon" aria-hidden="true">⌖</span>
-        <div><small>ГДЕ</small><strong>Kölökö · Бишкек</strong></div>
-        <span class="arrow" aria-hidden="true">↗</span>
-      </a>
     </section>
 
-    <section class="countdown-wrap" aria-label="До встречи осталось">
-      <p>До нашей встречи</p>
-      <div class="countdown" id="countdown" aria-live="polite">
-        <div><strong id="days">00</strong><span>дней</span></div>
-        <i>:</i>
-        <div><strong id="hours">00</strong><span>часов</span></div>
-        <i>:</i>
-        <div><strong id="minutes">00</strong><span>минут</span></div>
-        <i>:</i>
-        <div><strong id="seconds">00</strong><span>секунд</span></div>
-      </div>
-      <p class="finished" id="finished" hidden>Время нашей встречи ✦</p>
+    <section class="event-details">
+      <strong>СУББОТА, 11 ИЮЛЯ&nbsp; | &nbsp;19:00</strong>
+      <span>Kölökö · Бишкек</span>
+      <p>Давай проведём этот вечер вместе<br>и создадим ещё одно красивое воспоминание.</p>
     </section>
 
-    <section class="answer-area" id="answerArea">
-      <p class="question">Ну что, согласна?</p>
-      <div class="actions" id="actions">
+    <section class="answer-section">
+      <p>Ты пойдёшь со мной?</p>
+      <div class="answer-buttons" id="answerButtons">
+        <button class="no-button" id="noButton" type="button">Нет</button>
         <button class="yes-button" id="yesButton" type="button">Да, конечно 💜</button>
-        <button class="no-button" id="noButton" type="button" tabindex="-1">Нет</button>
       </div>
-      <div class="answer-result" id="answerResult" hidden>
-        <span aria-hidden="true">♥</span>
-        <div><strong>Тогда договорились!</strong><small>До встречи 11 июля в 19:00</small></div>
+      <div class="yes-result" id="yesResult" hidden>
+        <span>♥</span>
+        <strong>Тогда это свидание!</strong>
+        <small>До встречи 11 июля в 19:00</small>
       </div>
     </section>
   </main>
 
-  <div class="no-modal" id="noModal" role="dialog" aria-modal="true" aria-label="Ответ на кнопку Нет" hidden>
+  <div class="meme-modal" id="memeModal" role="dialog" aria-modal="true" aria-label="Ответ на кнопку Нет" hidden>
     <button class="modal-close" id="modalClose" type="button" aria-label="Закрыть">×</button>
-    <div class="meme-card">
-      <img src="cat_meme.jpg" alt="Котик" loading="eager">
+    <div class="meme-frame">
+      <img id="memeImage" src="meme_cat.jpg" alt="Мем с котиком">
     </div>
   </div>
 
-  <div class="particles" id="particles" aria-hidden="true"></div>
+  <div class="heart-particles" id="heartParticles" aria-hidden="true"></div>
   <script src="script.js"></script>
 </body>
 </html>
