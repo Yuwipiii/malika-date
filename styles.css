@@ -12,7 +12,9 @@
   font-family: "Yanyont";
   src:
     url("Yanyont-Bold.woff2") format("woff2"),
-    url("Yanyont-Bold.woff") format("woff");
+    url("Yanyont-Bold.woff") format("woff"),
+    url("Yanyont-Bold.otf") format("opentype"),
+    url("Yanyont-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
