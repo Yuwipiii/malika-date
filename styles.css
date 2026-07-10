@@ -8,6 +8,16 @@
   --white: #ffffff;
 }
 
+@font-face {
+  font-family: "Yanyont";
+  src:
+    url("Yanyont-Bold.woff2") format("woff2"),
+    url("Yanyont-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 * { box-sizing: border-box; }
 
 html, body { min-height: 100%; }
@@ -18,7 +28,7 @@ body {
   display: grid;
   place-items: center;
   background: #321642;
-  font-family: "Manrope", sans-serif;
+  font-family: "Yanyont", "Manrope", sans-serif;
 }
 
 .invitation {
@@ -81,19 +91,16 @@ body {
 .heart-garland span:nth-child(even) { --turn: 7deg; margin-top: -3px; }
 
 .heading { position: relative; z-index: 2; }
-.pretitle {
-  margin: 0 0 4px;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: .36em;
-}
 h1 {
   margin: 0;
-  font: 400 clamp(54px, 17vw, 80px)/.7 "Great Vibes", cursive;
-  letter-spacing: .01em;
-  text-shadow: 0 4px 0 rgba(101,39,119,.2);
+  font-family: "Yanyont", "Manrope", sans-serif;
+  font-size: clamp(42px, 12.5vw, 62px);
+  font-weight: 700;
+  line-height: .9;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 0 rgba(101,39,119,.16);
 }
-h1 em { display: inline-block; margin-top: 19px; font-style: normal; font-size: .78em; }
 
 .photo-zone {
   position: relative;
@@ -154,35 +161,42 @@ h1 em { display: inline-block; margin-top: 19px; font-style: normal; font-size: 
 .side-heart-four { right: 25px; bottom: 11px; font-size: 34px; transform: rotate(-12deg); animation-delay: -1.3s; }
 
 .event-details { position: relative; z-index: 2; }
+.event-details {
+  display: grid;
+  gap: 14px;
+}
+.event-row, .program-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.event-details small {
+  color: rgba(255,255,255,.7);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
 .event-details strong {
   display: block;
-  font-size: clamp(14px, 4.4vw, 19px);
-  font-weight: 800;
-  letter-spacing: .04em;
+  font-size: clamp(18px, 5.3vw, 24px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.02em;
 }
-.event-details > span {
+.event-details span {
   display: block;
-  margin-top: 5px;
   color: rgba(255,255,255,.84);
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.event-details p {
-  margin: 18px auto 0;
-  color: rgba(255,255,255,.8);
-  font-size: 11px;
-  line-height: 1.65;
 }
 
 .answer-section { position: relative; z-index: 4; margin-top: 22px; }
-.answer-section > p { margin: 0 0 12px; font-size: 14px; font-weight: 700; }
+.answer-section > p { margin: 0 0 12px; font-size: 18px; font-weight: 700; }
 .answer-buttons { display: grid; grid-template-columns: .65fr 1.35fr; gap: 10px; }
 button {
   min-height: 50px;
   border-radius: 16px;
-  font: 700 12px "Manrope", sans-serif;
+  font: 700 14px "Yanyont", "Manrope", sans-serif;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -198,22 +212,6 @@ button {
   box-shadow: 0 10px 25px rgba(68,18,83,.2);
 }
 .yes-button:active, .no-button:active { transform: scale(.97); }
-
-.yes-result {
-  min-height: 78px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  border: 1px solid rgba(255,255,255,.38);
-  border-radius: 18px;
-  background: rgba(255,255,255,.13);
-  animation: resultIn .4s ease-out both;
-}
-.yes-result > span { font-size: 21px; }
-.yes-result strong { font: 400 26px "Great Vibes", cursive; }
-.yes-result small { color: rgba(255,255,255,.76); font-size: 9px; }
 
 .meme-modal {
   position: fixed;
@@ -265,7 +263,6 @@ button {
 }
 
 @keyframes heartbeat { 50% { scale: 1.14; opacity: .72; } }
-@keyframes resultIn { from { opacity: 0; transform: scale(.92); } }
 @keyframes modalIn { from { opacity: 0; } }
 @keyframes memeIn { from { opacity: 0; transform: translateY(25px) scale(.9); } }
 @keyframes flyHeart {
@@ -275,10 +272,9 @@ button {
 
 @media (max-height: 720px) {
   .invitation { padding-top: 70px; }
-  h1 { font-size: 55px; }
+  h1 { font-size: 43px; }
   .photo-zone { height: 238px; margin-top: 16px; }
   .photo-heart { scale: .82; }
-  .event-details p { margin-top: 10px; }
   .answer-section { margin-top: 14px; }
 }
 
