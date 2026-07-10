@@ -2,8 +2,6 @@ const couplePhoto = document.getElementById("couplePhoto");
 const photoPlaceholder = document.getElementById("photoPlaceholder");
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
-const answerButtons = document.getElementById("answerButtons");
-const yesResult = document.getElementById("yesResult");
 const memeModal = document.getElementById("memeModal");
 const memeImage = document.getElementById("memeImage");
 const modalClose = document.getElementById("modalClose");
@@ -65,7 +63,5 @@ function launchHearts() {
 }
 
 yesButton.addEventListener("click", () => {
-  answerButtons.hidden = true;
-  yesResult.hidden = false;
   launchHearts();
 });
