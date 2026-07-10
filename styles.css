@@ -85,7 +85,7 @@ body {
   display: block;
   margin-top: -8px;
   color: white;
-  font-size: 43px;
+  font-size: 55px;
   line-height: 1;
   text-shadow: 0 4px 6px rgba(93,30,100,.12);
   transform: rotate(var(--turn, -5deg));
@@ -157,10 +157,10 @@ h1 {
   text-shadow: 0 7px 10px rgba(72,20,85,.16);
   animation: heartbeat 2.2s ease-in-out infinite;
 }
-.side-heart-one { left: 5px; top: 45px; font-size: 44px; transform: rotate(-18deg); }
-.side-heart-two { right: 2px; top: 30px; font-size: 38px; transform: rotate(13deg); animation-delay: -.5s; }
-.side-heart-three { left: 29px; bottom: 13px; font-size: 27px; transform: rotate(11deg); animation-delay: -.9s; }
-.side-heart-four { right: 25px; bottom: 11px; font-size: 34px; transform: rotate(-12deg); animation-delay: -1.3s; }
+.side-heart-one { left: -1px; top: 42px; font-size: 58px; transform: rotate(-18deg); }
+.side-heart-two { right: -4px; top: 25px; font-size: 52px; transform: rotate(13deg); animation-delay: -.5s; }
+.side-heart-three { left: 22px; bottom: 6px; font-size: 39px; transform: rotate(11deg); animation-delay: -.9s; }
+.side-heart-four { right: 18px; bottom: 4px; font-size: 46px; transform: rotate(-12deg); animation-delay: -1.3s; }
 
 .event-details { position: relative; z-index: 2; }
 .event-details {
@@ -190,6 +190,23 @@ h1 {
   color: rgba(255,255,255,.84);
   font-size: 15px;
   font-weight: 600;
+}
+.program-row ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+  margin: 3px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.program-row li {
+  padding: 7px 11px;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 999px;
+  background: rgba(255,255,255,.1);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .answer-section { position: relative; z-index: 4; margin-top: 22px; }
@@ -259,7 +276,7 @@ button {
   bottom: 12%;
   pointer-events: none;
   color: var(--color, #fff);
-  font-size: var(--size, 22px);
+  font-size: var(--size, 30px);
   text-shadow: 0 4px 8px rgba(92,30,110,.22);
   animation: flyHeart var(--duration, 2s) ease-out forwards;
 }
