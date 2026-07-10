@@ -5,6 +5,9 @@ const actions = document.getElementById("actions");
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
 const answerResult = document.getElementById("answerResult");
+const noModal = document.getElementById("noModal");
+const modalClose = document.getElementById("modalClose");
+const isMobileDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
 function updateCountdown() {
   const distance = meetingDate.getTime() - Date.now();
@@ -65,19 +68,34 @@ function runAway(event) {
   moveNoButton();
 }
 
-noButton.addEventListener("pointerenter", runAway);
-noButton.addEventListener("pointerdown", runAway);
-noButton.addEventListener("touchstart", runAway, { passive: false });
-noButton.addEventListener("click", runAway);
+if (isMobileDevice) {
+  noButton.addEventListener("click", () => {
+    noModal.hidden = false;
+    document.body.style.overflow = "hidden";
+  });
+} else {
+  noButton.addEventListener("pointerenter", runAway);
+  noButton.addEventListener("pointerdown", runAway);
+  noButton.addEventListener("click", runAway);
 
-actions.addEventListener("pointermove", (event) => {
-  if (event.pointerType === "touch") return;
-  const buttonRect = noButton.getBoundingClientRect();
-  const distance = Math.hypot(
-    event.clientX - (buttonRect.left + buttonRect.width / 2),
-    event.clientY - (buttonRect.top + buttonRect.height / 2)
-  );
-  if (distance < 76) moveNoButton();
+  actions.addEventListener("pointermove", (event) => {
+    const buttonRect = noButton.getBoundingClientRect();
+    const distance = Math.hypot(
+      event.clientX - (buttonRect.left + buttonRect.width / 2),
+      event.clientY - (buttonRect.top + buttonRect.height / 2)
+    );
+    if (distance < 76) moveNoButton();
+  });
+}
+
+function closeNoModal() {
+  noModal.hidden = true;
+  document.body.style.overflow = "";
+}
+
+modalClose.addEventListener("click", closeNoModal);
+noModal.addEventListener("click", (event) => {
+  if (event.target === noModal) closeNoModal();
 });
 
 function celebrate() {
